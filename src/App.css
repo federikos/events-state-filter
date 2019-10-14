@@ -17,3 +17,31 @@
   padding: 2%;
   width: 100%;
 }
+
+.btn {
+  margin: 5px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #929292;
+  color: #929292;
+  cursor: pointer;
+}
+
+.btn-selected {
+  background: #555555;
+  color: #ffffff;
+}
+
+.btn:hover {
+  color: #000000;
+  border-color: #000000;
+  box-shadow: 2px 2px 2px #929292;
+}
+
+.btn-selected:hover {
+  color: #ffffff;
+}
+
+.btn:active {
+  box-shadow: 4px 4px 2px #929292;
+}
