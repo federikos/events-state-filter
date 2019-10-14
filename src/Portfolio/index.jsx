@@ -3,9 +3,10 @@ import data from './data';
 import ProjectList from './ProjectList';
 import Toolbar from './Toolbar';
 
+const filters = ['All', 'Websites', 'Flayers', 'Business Cards'];
+
 class Portfolio extends Component {
   state = {
-    filters: ['All', 'Websites', 'Flayers', 'Business Cards'],
     activeFilter: 'All',
   }
 
@@ -23,7 +24,7 @@ class Portfolio extends Component {
 
     return (
       <div className="root">
-        <Toolbar filters={this.state.filters} selected={this.state.activeFilter} onSelectFilter={onSelectFilter} />
+        <Toolbar filters={filters} selected={this.state.activeFilter} onSelectFilter={onSelectFilter} />
         <ProjectList projects={projects}/>
       </div>
     )
