@@ -1,31 +1,34 @@
 import React, { Component } from 'react';
-import data from './data';
+import projects from './data';
 import ProjectList from './ProjectList';
 import Toolbar from './Toolbar';
 
-const filters = ['All', 'Websites', 'Flayers', 'Business Cards'];
+const FilterType = {
+  ALL: 'All', 
+  WEBSITES: 'Websites', 
+  FLAYERS: 'Flayers', 
+  BUSINESS_CARDS: 'Business Cards'
+};
 
 class Portfolio extends Component {
+
   state = {
-    activeFilter: 'All',
+    activeFilter: FilterType.ALL,
   }
 
-  render() {
-    const onSelectFilter = (filter) => {
-      this.setState({activeFilter: filter})
-    };
+  onSelectFilter = (filter) => {
+    this.setState({activeFilter: filter})
+  };
 
-    const projects = data.filter(project => {
-      if (this.state.activeFilter !== 'All') {
-        return project.category === this.state.activeFilter
-      }
-      return true;
-    });
+  render() {
+    const filteredProjects = this.state.activeFilter === FilterType.ALL
+      ? projects
+      : projects.filter(project => project.category === this.state.activeFilter);
 
     return (
       <div className="root">
-        <Toolbar filters={filters} selected={this.state.activeFilter} onSelectFilter={onSelectFilter} />
-        <ProjectList projects={projects}/>
+        <Toolbar filters={Object.values(FilterType)} selected={this.state.activeFilter} onSelectFilter={this.onSelectFilter} />
+        <ProjectList projects={filteredProjects}/>
       </div>
     )
   }

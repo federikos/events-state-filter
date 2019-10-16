@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import nanoid from 'nanoid';
 
 const ProjectList = ({projects}) => (
   <div className="projectListRoot">
@@ -9,7 +8,7 @@ const ProjectList = ({projects}) => (
         const alt = project.img.split('/').pop().split('.')[0];
         
         return (
-          <div key={nanoid()} className="imgWrapper">
+          <div key={project.img} className="imgWrapper">
             <img src={project.img} className='img' alt={alt} />
           </div>
         )

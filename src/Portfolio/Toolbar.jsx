@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import nanoid from 'nanoid';
 
 const Toolbar = ({filters, selected, onSelectFilter}) => {
   return (
     <>
       {
         filters.map(filter => (
-          <button key={nanoid()} className={clsx('btn', selected === filter && 'btn-selected')} onClick={() => onSelectFilter(filter)}>{filter}</button>
+          <button key={filter} className={clsx('btn', selected === filter && 'btn-selected')} onClick={() => onSelectFilter(filter)}>{filter}</button>
         ))
       }
     </>
